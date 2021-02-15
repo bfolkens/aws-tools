@@ -4,11 +4,11 @@ set -eu
 
 function invalidateDistribution() {
   echo "Invalidating $1"
-  aws cloudfront create-invalidation --distribution-id=$1 --paths="$paths" | jq
+  aws cloudfront create-invalidation --distribution-id="$1" --paths="$paths" | jq
 }
 
 if [ $# -eq 0 ]; then
-	scriptname=`basename "$0"`
+  scriptname=$(basename "$0")
 	echo "Usage: ./$scriptname distribution [path]"
   echo
   echo "distribution    the distribution name (or --all to invalidate all available)"
@@ -24,9 +24,9 @@ if [[ "$1" == "--all" ]]; then
   invalidation_list=$(aws cloudfront list-distributions | jq -r ".DistributionList.Items[].Id")
 
   for invalidation_id in $invalidation_list; do
-    invalidateDistribution $invalidation_id
+    invalidateDistribution "$invalidation_id"
   done
 else
   invalidation_id=$(aws cloudfront list-distributions | jq -r ".DistributionList.Items[] | select(any(.Aliases.Items[]; . == \"$1\")) | .Id")
-  invalidateDistribution $invalidation_id
+  invalidateDistribution "$invalidation_id"
 fi
