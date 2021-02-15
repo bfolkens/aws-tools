@@ -1,0 +1,18 @@
+#!/bin/bash
+
+set -eu
+
+if [ $# -eq 0 ]; then
+	scriptname=`basename "$0"`
+	echo "Usage: ./$scriptname cluster service"
+  echo
+  echo "cluster    the cluster name"
+  echo "service    the service name"
+	echo
+
+  exit 0
+fi
+
+
+aws ecs --cluster=$1 describe-services --services $2 | jq '.services[].deployments[]'
+

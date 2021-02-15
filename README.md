@@ -12,7 +12,7 @@ These scripts assume the user has the `AWS_PROFILE` environment variable set.
 
 # Other Projects
 
-This project is highly opinionated.  You may find the following projects more flexible, expansive:
+This project is highly opinionated.  You may find the following projects more flexible, expansive, or interesting:
 
 * [swoodford/aws](https://github.com/swoodford/aws)
 
