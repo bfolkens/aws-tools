@@ -8,7 +8,7 @@ Over the years, I've written a set of utility scripts to automate some of the re
 
 # Usage
 
-These scripts assume the user has the `AWS_PROFILE` environment variable set.  Some many also assume `AWS_ACCOUNT_ID` and `AWS_ZONE`.
+These scripts assume the user has the `AWS_PROFILE` environment variable set.  Some many also assume `AWS_ACCOUNT_ID` and `AWS_ZONE`.  When using something like [direnv](https://direnv.net/), this makes managing multiple projects on multiple accounts very easy, and avoids having to repeatedly type `-p` option, etc.
 
 Many of these scripts have been written with pipe and composability in mind.  See below for some examples:
 
