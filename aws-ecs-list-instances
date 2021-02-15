@@ -4,7 +4,7 @@
 set -eu
 
 if [ $# -eq 0 ]; then
-	scriptname=`basename "$0"`
+  scriptname=$(basename "$0")
 	echo "Usage: ./$scriptname cluster service"
   echo
   echo "cluster    the cluster name"
@@ -15,8 +15,8 @@ if [ $# -eq 0 ]; then
 fi
 
 
-readarray tasks < <(aws ecs --cluster=$1 list-tasks --service=$2 | jq -r '.taskArns[]' | tr "\n" " ")
-readarray container_instances < <(aws ecs --cluster=$1 describe-tasks --tasks $tasks | jq -r '.tasks[].containerInstanceArn' | tr "\n" " ")
-readarray instances < <(aws ecs --cluster=$1 describe-container-instances --container-instances $container_instances | jq -r '.containerInstances[0].ec2InstanceId' | tr "\n" " ")
+readarray tasks < <(aws ecs --cluster="$1" list-tasks --service="$2" | jq -r '.taskArns[]' | tr "\n" " ")
+readarray container_instances < <(aws ecs --cluster="$1" describe-tasks --tasks $tasks | jq -r '.tasks[].containerInstanceArn' | tr "\n" " ")
+readarray instances < <(aws ecs --cluster="$1" describe-container-instances --container-instances $container_instances | jq -r '.containerInstances[0].ec2InstanceId' | tr "\n" " ")
 
 aws ec2 describe-instances --filter Name=instance-id,Values=$instances | jq -r '.Reservations[].Instances[].PublicIpAddress'

@@ -3,7 +3,7 @@
 set -eu
 
 if [ $# -eq 0 ]; then
-	scriptname=`basename "$0"`
+  scriptname=$(basename "$0")
 	echo "Usage: ./$scriptname cluster service"
   echo
   echo "cluster    the cluster name"
@@ -14,5 +14,5 @@ if [ $# -eq 0 ]; then
 fi
 
 
-aws ecs --cluster=$1 describe-services --services $2 | jq '.services[].deployments[]'
+aws ecs --cluster="$1" describe-services --services "$2" | jq '.services[].deployments[]'
 
