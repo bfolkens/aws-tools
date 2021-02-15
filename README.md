@@ -1,4 +1,4 @@
-<img src="https://en.wikipedia.org/wiki/Amazon_Web_Services#/media/File:Amazon_Web_Services_Logo.svg" alt="AWS" width=130 height=130>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/800px-Amazon_Web_Services_Logo.svg.png" alt="AWS" width=200 height=200>
 
 A collection of bash shell scripts for automating various tasks with [Amazon Web Services](https://aws.amazon.com/) using the [AWS CLI](https://aws.amazon.com/cli/)
 
