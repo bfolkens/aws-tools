@@ -4,7 +4,7 @@ A collection of bash shell scripts for automating various tasks with [Amazon Web
 
 # Introduction
 
-Over the years, I've written a set of utility scripts to automate some of the repetitive and mundane tasks on AWS, thereby avoiding clicks through the AWS web console.  These scripts follow the theme of being simple and requiring only the `jq` utility.
+Over the years, I've written a set of utility scripts to automate some of the repetitive and mundane tasks on AWS, thereby avoiding clicks through the AWS web console.  These scripts follow the theme of being simple and requiring only the `jq` utility, and to offer maximum composability where possible.
 
 # Usage
 
