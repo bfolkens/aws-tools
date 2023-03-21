@@ -25,6 +25,7 @@ if [[ "$1" == "--all" ]]; then
 
   for invalidation_id in $invalidation_list; do
     invalidateDistribution "$invalidation_id"
+    sleep 5
   done
 else
   invalidation_id=$(aws cloudfront list-distributions | jq -r ".DistributionList.Items[] | select(any(.Aliases.Items[]; . == \"$1\")) | .Id")
